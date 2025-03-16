@@ -804,11 +804,11 @@ export const markComplete = async (req: Request, res: Response): Promise<void> =
     res.status(500).json({ message: 'Failed to complete service' });
   }
 }
-cron.schedule('0 7 * * *', async () => {
-  console.log('Running scheduled task at 7');
-  await updateEstimation();
-  // Run the required tasks
-  await processRepeatedAppointments();
-}, {
-  timezone: 'Asia/Kolkata',
-});
+// cron.schedule('0 7 * * *', async () => {
+//   console.log('Running scheduled task at 7');
+//   await updateEstimation();
+//   // Run the required tasks
+//   await processRepeatedAppointments();
+// }, {
+//   timezone: 'Asia/Kolkata',
+// });

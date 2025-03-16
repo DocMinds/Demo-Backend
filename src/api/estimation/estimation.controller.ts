@@ -12,7 +12,7 @@ const prisma = new PrismaClient();
 const repository = new ServiceRepository();
 
 const FTP_CONFIG = {
-    host: "ftp.inventionminds.com",  // Your FTP hostname
+    host: "srv680.main-hosting.eu",  // Your FTP hostname
     user: "u948610439",       // Your FTP username
     password: "Bsrenuk@1993",   // Your FTP password
     secure: false                    // Set to true if using FTPS
@@ -151,8 +151,8 @@ export const createEstimationDetails = async (req: Request, res: Response) => {
         console.log(estimationId)
         const payload = {
             from: fromPhoneNumber,
-            // to: ["919844171700", "916364833989", "918904943659"], // Recipient's WhatsApp number
-            to: ["919342287945"],
+            to: ["919844171700", "916364833989", "918904943659"], // Recipient's WhatsApp number
+            // to: ["919342287945"],
             type: "template",
             message: {
                 templateid: "739377", // Use your actual template ID // Extracts PDF name
@@ -185,8 +185,8 @@ export const createEstimationDetails = async (req: Request, res: Response) => {
                 console.log(estimationId)
                 const payload = {
                     from: fromPhoneNumber,
-                    // to: ["919844171700", "916364833989", "918904943659"], // Recipient's WhatsApp number
-                    to: ["919342287945"],
+                    to: ["919844171700", "916364833989", "918904943659"], // Recipient's WhatsApp number
+                    // to: ["919342287945"],
                     type: "template",
                     message: {
                         templateid: "739341", // Use your actual template ID // Extracts PDF name

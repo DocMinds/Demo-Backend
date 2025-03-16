@@ -2051,8 +2051,8 @@ async function checkDoctorAvailability() {
       console.log(firstAppointment)
 
 
-      // const adminPhoneNumbers = ["919880544866", "916364833988"]
-      const adminPhoneNumbers = ["919342287945", "919342287945"];
+      const adminPhoneNumbers = ["919880544866", "916364833988"]
+      // const adminPhoneNumbers = ["919342287945", "919342287945"];
       const now = moment().tz("Asia/Kolkata").toDate();
 
       const thresholdTime = moment(availableTime).add(10, "minutes"); // Keeps thresholdTime as Moment
@@ -2326,8 +2326,8 @@ async function checkPatientWaitingTime() {
 
 
           // Step 7: Send WhatsApp notifications to Admins & Doctor
-          const adminPhoneNumbers = ['919342287945', '919342287945']; // Admin List
-          // const adminPhoneNumbers = ["919880544866", "916364833988"]
+          // const adminPhoneNumbers = ['919342287945', '919342287945']; // Admin List
+          const adminPhoneNumbers = ["919880544866", "916364833988"]
           const adminsToSend = Array.isArray(adminPhoneNumbers)
             ? adminPhoneNumbers.slice(0, waitingMultiplier) // Send message to more admins based on waiting multiplier
             : [];
@@ -2383,47 +2383,47 @@ function parseTimeToMinutes(time: string): number {
 
 // Run the function every 5 minutes
 // setInterval(checkDoctorAvailability, 300000); // 5 minutes
-  cron.schedule('0 21 * * *', async () => {
-    console.log('Running scheduled task to send doctor appointment reminders and screenshot');
-    await sendDoctorMessage();
-    await ScreenshotController.captureDashboard();
-  }, {
-    timezone: 'Asia/Kolkata',
-  });
+  // cron.schedule('0 21 * * *', async () => {
+  //   console.log('Running scheduled task to send doctor appointment reminders and screenshot');
+  //   await sendDoctorMessage();
+  //   await ScreenshotController.captureDashboard();
+  // }, {
+  //   timezone: 'Asia/Kolkata',
+  // });
 
-  cron.schedule('0 23 * * *', async () => {
-    console.log('Running scheduled task to complete at 11');
-    await markComplete()
-  }, {
-    timezone: 'Asia/Kolkata',
-  });
+  // cron.schedule('0 23 * * *', async () => {
+  //   console.log('Running scheduled task to complete at 11');
+  //   await markComplete()
+  // }, {
+  //   timezone: 'Asia/Kolkata',
+  // });
 
-  cron.schedule('0 15 * * *', async () => {
-    console.log('Running scheduled task to complete at 15');
-    await markComplete()
-  }, {
-    timezone: 'Asia/Kolkata',
-  });
+  // cron.schedule('0 15 * * *', async () => {
+  //   console.log('Running scheduled task to complete at 15');
+  //   await markComplete()
+  // }, {
+  //   timezone: 'Asia/Kolkata',
+  // });
 
-  cron.schedule('* * * * *', async () => {
-    console.log('Running scheduled task for every min');
-    await checkPatientWaitingTime();
-  }, {
-    timezone: 'Asia/Kolkata',
-  });
+  // cron.schedule('* * * * *', async () => {
+  //   console.log('Running scheduled task for every min');
+  //   await checkPatientWaitingTime();
+  // }, {
+  //   timezone: 'Asia/Kolkata',
+  // });
 
-  cron.schedule('*/5 * * * *', async () => {
-    console.log('Running scheduled task for every 5 mins');
-    await cancelExpiredAppointments();
-    await checkDoctorAvailability();
-  }, {
-    timezone: 'Asia/Kolkata',
-  });
-  cron.schedule('0 * * * *', async () => {
-    console.log('Running scheduled task for one hour');
-    await checkAndSendReminders();
-    await remainderForAdmin();
-    await reminderForServices();
-  }, {
-    timezone: 'Asia/Kolkata',
-  });
+  // cron.schedule('*/5 * * * *', async () => {
+  //   console.log('Running scheduled task for every 5 mins');
+  //   await cancelExpiredAppointments();
+  //   await checkDoctorAvailability();
+  // }, {
+  //   timezone: 'Asia/Kolkata',
+  // });
+  // cron.schedule('0 * * * *', async () => {
+  //   console.log('Running scheduled task for one hour');
+  //   await checkAndSendReminders();
+  //   await remainderForAdmin();
+  //   await reminderForServices();
+  // }, {
+  //   timezone: 'Asia/Kolkata',
+  // });
